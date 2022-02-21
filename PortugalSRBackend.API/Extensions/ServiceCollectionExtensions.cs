@@ -9,13 +9,19 @@ namespace PortugalSRBackend.API.Extensions
     {
         public static void AddServiceCollection(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddOptions<HackerNewsSetup>(configuration.GetSection("HackerNews").Value);
+            services.AddServiceOptions(configuration);
+
             // Add services to the container.
             services.AddScopedServices();
             services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+        }
+
+        public static void AddServiceOptions(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddOptions().Configure<HackerNewsSetup>(configuration.GetSection("HackerNews"));
         }
 
         public static void AddScopedServices(this IServiceCollection services)
