@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Headers;
+﻿using PortugalSRBackend.Core.Common.Exceptions;
+using System.Net.Http.Headers;
 
 namespace PortugalSRBackend.Application.WebRequest
 {
@@ -21,7 +22,7 @@ namespace PortugalSRBackend.Application.WebRequest
         public static async Task<TEntity> ExecuteRequestAsync<TEntity>(HttpClient client, string urlParameters)
         {
             var response = await client.GetAsync(urlParameters);
-
+            Dispose(client);
             if (response.IsSuccessStatusCode)
             {
                 // Parse the response body.
@@ -30,8 +31,13 @@ namespace PortugalSRBackend.Application.WebRequest
             }
             else
             {
-                throw new Exception("Not possible to connect to firebase.");
+                throw new ServiceException("Not possible to connect to firebase.");
             }
+        }
+
+        private static void Dispose(HttpClient client)
+        {
+            client.Dispose();
         }
     }
 }
