@@ -1,6 +1,6 @@
 ﻿using PortugalSRBackend.Application.Services.Base;
 using PortugalSRBackend.Core.Interfaces.Services.Base;
-using PortugalSRBackend.Core.Objects;
+using PortugalSRBackend.Core.Objects.Setup;
 using System.Reflection;
 
 namespace PortugalSRBackend.API.Extensions

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using PortugalSRBackend.Core.Interfaces.Services;
 using PortugalSRBackend.Core.Interfaces.Services.HackerNews;
-using PortugalSRBackend.Core.Objects;
+using PortugalSRBackend.Core.Objects.Setup;
 using PortugalSRBackend.Domain.HackerNews;
 
 namespace PortugalSRBackend.Application.Services

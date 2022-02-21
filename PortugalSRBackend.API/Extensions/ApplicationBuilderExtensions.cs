@@ -1,10 +1,12 @@
-﻿namespace PortugalSRBackend.API.Extensions
+﻿using PortugalSRBackend.API.Middleware;
+
+namespace PortugalSRBackend.API.Extensions
 {
     public static class ApplicationBuilderExtensions
     {
         public static void AddApplicationConfiguration(this IApplicationBuilder app)
         {
-            // Configure the HTTP request pipeline.
+            app.UseMiddleware<ExceptionMiddleware>();
             app.UseSwagger();
             app.UseSwaggerUI();
             app.UseHttpsRedirection();

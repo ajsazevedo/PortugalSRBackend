@@ -1,4 +1,4 @@
-﻿namespace PortugalSRBackend.Core.Objects
+﻿namespace PortugalSRBackend.Core.Objects.Setup
 {
     public class HackerNewsSetup
     {
