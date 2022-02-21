@@ -5,6 +5,6 @@ namespace PortugalSRBackend.Core.Interfaces.Services
 {
     public interface IStoryService : IHackerNewsService
     {
-        IEnumerable<Story> GetBest20();
+        Task<IEnumerable<Story>> GetBest20Async();
     }
 }

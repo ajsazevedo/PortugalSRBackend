@@ -14,9 +14,9 @@ namespace PortugalSRBackend.API.Controllers
         }
 
         [HttpGet("[action]")]
-        public IActionResult Best20()
+        public async Task<IActionResult> Best20()
         {
-            return Ok(service.GetBest20());
+            return Ok(await service.GetBest20Async());
         }
     }
 }
